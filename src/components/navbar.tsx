@@ -1,6 +1,10 @@
 import React from 'react';
 
-export function Navbar({ children }) {
+type NavbarProps = {
+  children: React.ReactNode;
+}
+
+export function Navbar({ children }: NavbarProps) {
   return (
     <nav className="navbar navbar-default">
       <div className="container">

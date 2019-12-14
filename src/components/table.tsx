@@ -2,6 +2,14 @@ import cx from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+type TableProps = {
+  bordered?: boolean;
+  condensed?: boolean;
+  hover?: boolean;
+  responsive?: boolean;
+  striped?: boolean;
+};
+
 /**
  * @see https://getbootstrap.com/docs/3.3/css/#tables
  */
@@ -35,10 +43,10 @@ export const Table = ({
   );
 };
 
-Table.propTypes = {
-  bordered: PropTypes.bool,
-  condensed: PropTypes.bool,
-  hover: PropTypes.bool,
-  responsive: PropTypes.bool,
-  striped: PropTypes.bool,
-};
+// Table.propTypes = {
+//   bordered: PropTypes.bool,
+//   condensed: PropTypes.bool,
+//   hover: PropTypes.bool,
+//   responsive: PropTypes.bool,
+//   striped: PropTypes.bool,
+// };

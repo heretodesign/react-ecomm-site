@@ -1,23 +1,29 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { ErrorInfo } from 'react';
 import { Panel, PanelBody, PanelHeading } from './panel';
+
+type ErrorBoundaryProps = {
+  children: React.ReactNode;
+  onError?: () => void;
+};
+
+type ErrorBoundaryState = {
+  state: {
+    hasError: false
+  }
+};
 
 /**
  * `ErrorBoundary` catches error in component tree.
  *
  * @see https://reactjs.org/docs/error-boundaries.html
  */
-export class ErrorBoundary extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    onError: PropTypes.func,
-  };
-
+export class ErrorBoundary extends React.Component <ErrorBoundaryProps>{
   state = {
     hasError: false,
   };
 
-  componentDidCatch(error, errorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     this.setState(
       {
         hasError: true,
